@@ -1,6 +1,6 @@
 import util from '../helpers/util';
 
-let strength = 50;
+let strength = 100;
 
 const fightOnLoad = () => strength;
 
