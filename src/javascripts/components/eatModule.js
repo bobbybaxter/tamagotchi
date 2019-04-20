@@ -11,20 +11,25 @@ const eatFunction = (e) => {
     if (full > 100) {
       full = 100;
     }
-    util.printToDom('fullTotal', full);
+    document.getElementById('eatBarStatus').style.width = `${full}%`;
+    // util.printToDom('fullTotal', full);
   } else {
     full -= 3;
     if (full < 0) {
       full = 0;
     }
-    util.printToDom('fullTotal', full);
+    document.getElementById('eatBarStatus').style.width = `${full}%`;
+    // util.printToDom('fullTotal', full);
   }
 };
 
 const printToEat = () => {
   let domString = '<button class="eat-buttons" id="eatGood">Feed Healthy Food</button>';
   domString += '<button class="eat-buttons" id="eatBad">Feed Junk Food</button>';
-  domString += `<h4 id="fullTotal">${full}</h4>`;
+  // domString += `<h4 id="fullTotal" class="progress">${full}</h4>`;
+  domString += '<div id="progressBar">';
+  domString += '<div id="eatBarStatus"></div>';
+  domString += '</div>';
   util.printToDom('eat', domString);
   document.getElementById('eatGood').addEventListener('click', eatFunction);
   document.getElementById('eatBad').addEventListener('click', eatFunction);
