@@ -12,14 +12,13 @@ const eatFunction = (e) => {
   e.preventDefault();
   let fullness = getFull();
   if (e.target.id === 'eatGood') {
-    fullness += 10;
+    fullness += Math.floor(Math.random() * 9);
     if (fullness > 100) {
       fullness = 100;
     }
     document.getElementById('eatBarStatus').style.width = `${fullness}%`;
-    setFull(fullness);
   } else {
-    fullness -= 3;
+    fullness -= Math.floor(Math.random() * 2);
     if (fullness < 0) {
       fullness = 0;
     }

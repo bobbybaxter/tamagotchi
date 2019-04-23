@@ -12,20 +12,19 @@ const fightFunction = (e) => {
   e.preventDefault();
   let strengthLevel = getStrength();
   if (e.target.id === 'fightGood') {
-    strengthLevel += 1;
+    strengthLevel += Math.floor(Math.random() * 9);
     if (strengthLevel > 100) {
       strengthLevel = 100;
     }
     document.getElementById('fightBarStatus').style.width = `${strengthLevel}%`;
-    setStrength(strengthLevel);
   } else {
-    strengthLevel -= 10;
+    strengthLevel -= Math.floor(Math.random() * 11);
     if (strengthLevel < 0) {
       strengthLevel = 0;
     }
     document.getElementById('fightBarStatus').style.width = `${strengthLevel}%`;
-    setStrength(strengthLevel);
   }
+  setStrength(strengthLevel);
 };
 
 const printToFight = () => {

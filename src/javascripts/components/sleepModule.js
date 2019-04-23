@@ -12,20 +12,19 @@ const sleepFunction = (e) => {
   e.preventDefault();
   let energyLevel = getEnergy();
   if (e.target.id === 'sleepMore') {
-    energyLevel += 60;
+    energyLevel += Math.floor(Math.random() * 59);
     if (energyLevel > 100) {
       energyLevel = 100;
     }
     document.getElementById('sleepBarStatus').style.width = `${energyLevel}%`;
-    setEnergy(energyLevel);
   } else {
-    energy += 50;
+    energy += Math.floor(Math.random() * 49);
     if (energy > 100) {
       energy = 100;
     }
     document.getElementById('sleepBarStatus').style.width = `${energyLevel}%`;
-    setEnergy(energyLevel);
   }
+  setEnergy(energyLevel);
 };
 
 const printToSleep = () => {

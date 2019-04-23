@@ -12,20 +12,19 @@ const playFunction = (e) => {
   e.preventDefault();
   let funLevel = getFun();
   if (e.target.id === 'playMore') {
-    funLevel += 10;
+    funLevel += Math.floor(Math.random() * 49);
     if (funLevel > 100) {
       funLevel = 100;
     }
     document.getElementById('playBarStatus').style.width = `${funLevel}%`;
-    setFun(funLevel);
   } else {
-    funLevel -= 3;
-    if (funLevel < 0) {
-      funLevel = 0;
+    funLevel += Math.floor(Math.random() * 9);
+    if (funLevel > 100) {
+      funLevel = 100;
     }
     document.getElementById('playBarStatus').style.width = `${funLevel}%`;
-    setFun(funLevel);
   }
+  setFun(funLevel);
 };
 
 const printToPlay = () => {
