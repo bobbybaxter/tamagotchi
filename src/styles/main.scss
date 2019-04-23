@@ -28,7 +28,12 @@ body {
 
 #progress { 
   grid-area: 3 / 2 / 4 / 4; 
-  background-color: darkgray; 
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 28px;
 }
 
 #fight { 
@@ -63,6 +68,7 @@ body {
   text-decoration: none;
   width: 48%;
   height: 48%;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
 
 @mixin progressBar {
@@ -74,52 +80,52 @@ body {
 @mixin redFade {
   background: rgb(255,57,57);
   background: linear-gradient(90deg, rgba(255,57,57,1) 0%, rgba(255,99,99,1) 100%);
-  border: 1px solid #C50000;
+  // border: 1px solid #C50000;
 }
 
 @mixin yellowFade {
   background: rgb(255,255,57);
   background: linear-gradient(90deg, rgba(255,255,57,1) 0%, rgba(255,255,99,1) 100%);
-  border: 1px solid #C5C500;
+  // border: 1px solid #C5C500;
 }
 
 @mixin blueFade {
   background: rgb(62,62,183);
   background: linear-gradient(90deg, rgba(62,62,183,1) 0%, rgba(95,95,198,1) 100%);
-  border: 1px solid #13138A;
+  // border: 1px solid #13138A;
 }
 
 @mixin greenFade {
   background: rgb(46,207,46);
   background: linear-gradient(90deg, rgba(46,207,46,1) 0%, rgba(84,217,84,1) 100%);
-  border: 1px solid #009E00;
+  // border: 1px solid #009E00;
 }
 
 .eat-buttons {
   @include button;
   @include redFade;
-  border: 2px solid #C50000;
+  // border: 2px solid #C50000;
   color: whitesmoke;
 }
 
 .play-buttons {
   @include button;
   @include yellowFade;
-  border: 2px solid #C5C500;
+  // border: 2px solid #C5C500;
   color: #9B9B00;
 }
 
 .fight-buttons {
   @include button;
   @include blueFade;
-  border: 2px solid #13138A;
+  // border: 2px solid #13138A;
   color: whitesmoke;
 }
 
 .sleep-buttons {
   @include button;
   @include greenFade;
-  border: 2px solid #009E00;
+  // border: 2px solid #009E00;
   color: whitesmoke;
 }
 
@@ -129,7 +135,7 @@ body {
   margin: 0 1% 1% 1%;
 }
 
-#progressBar {
+.progressBar {
   position: relative;
   border-radius: 28px;
   width: 50%;
@@ -160,4 +166,10 @@ body {
   @include progressBar;
   @include greenFade;
   width: 50%;
+}
+
+#overallBarStatus {
+  @include progressBar;
+  background-color: black;
+  width: 0%;
 }

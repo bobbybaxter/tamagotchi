@@ -1,33 +1,38 @@
 import util from '../helpers/util';
 
-let full = 100;
+let full = 0;
 
-const eatOnLoad = () => full;
+const getFull = () => full;
+
+const setFull = (fullValue) => {
+  full = fullValue;
+};
 
 const eatFunction = (e) => {
   e.preventDefault();
+  let fullness = getFull();
   if (e.target.id === 'eatGood') {
-    full += 10;
-    if (full > 100) {
-      full = 100;
+    fullness += 10;
+    if (fullness > 100) {
+      fullness = 100;
     }
-    document.getElementById('eatBarStatus').style.width = `${full}%`;
-    // util.printToDom('fullTotal', full);
+    document.getElementById('eatBarStatus').style.width = `${fullness}%`;
+    setFull(fullness);
   } else {
-    full -= 3;
-    if (full < 0) {
-      full = 0;
+    fullness -= 3;
+    if (fullness < 0) {
+      fullness = 0;
     }
-    document.getElementById('eatBarStatus').style.width = `${full}%`;
-    // util.printToDom('fullTotal', full);
+    document.getElementById('eatBarStatus').style.width = `${fullness}%`;
   }
+  setFull(fullness);
 };
 
 const printToEat = () => {
-  let domString = '<button class="eat-buttons" id="eatGood">Feed Healthy Food</button>';
-  domString += '<button class="eat-buttons" id="eatBad">Feed Junk Food</button>';
+  let domString = '<button class="eat-buttons" id="eatBad">Feed Junk Food</button>';
+  domString += '<button class="eat-buttons" id="eatGood">Feed Healthy Food</button>';
   // domString += `<h4 id="fullTotal" class="progress">${full}</h4>`;
-  domString += '<div id="progressBar">';
+  domString += '<div class="progressBar">';
   domString += '<div id="eatBarStatus"></div>';
   domString += '</div>';
   util.printToDom('eat', domString);
@@ -35,4 +40,4 @@ const printToEat = () => {
   document.getElementById('eatBad').addEventListener('click', eatFunction);
 };
 
-export default { eatOnLoad, printToEat };
+export default { setFull, printToEat, getFull };

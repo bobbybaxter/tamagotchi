@@ -1,25 +1,30 @@
 import util from '../helpers/util';
 
-let energy = 50;
+let energy = 0;
 
-const sleepOnLoad = () => energy;
+const getEnergy = () => energy;
+
+const setEnergy = (energyValue) => {
+  energy = energyValue;
+};
 
 const sleepFunction = (e) => {
   e.preventDefault();
+  let energyLevel = getEnergy();
   if (e.target.id === 'sleepMore') {
-    energy += 60;
-    if (energy > 100) {
-      energy = 100;
+    energyLevel += 60;
+    if (energyLevel > 100) {
+      energyLevel = 100;
     }
-    document.getElementById('sleepBarStatus').style.width = `${energy}%`;
-    // util.printToDom('energyTotal', energy);
+    document.getElementById('sleepBarStatus').style.width = `${energyLevel}%`;
+    setEnergy(energyLevel);
   } else {
     energy += 50;
     if (energy > 100) {
       energy = 100;
     }
-    document.getElementById('sleepBarStatus').style.width = `${energy}%`;
-    // util.printToDom('energyTotal', energy);
+    document.getElementById('sleepBarStatus').style.width = `${energyLevel}%`;
+    setEnergy(energyLevel);
   }
 };
 
@@ -27,7 +32,7 @@ const printToSleep = () => {
   let domString = '<button class="sleep-buttons" id="sleepMore">Deep Sleep</button>';
   domString += '<button class="sleep-buttons" id="sleepLess">Nap</button>';
   // domString += `<h4 id="energyTotal" class="progress">${energy}</h4>`;
-  domString += '<div id="progressBar">';
+  domString += '<div class="progressBar">';
   domString += '<div id="sleepBarStatus"></div>';
   domString += '</div>';
   util.printToDom('sleep', domString);
@@ -35,4 +40,4 @@ const printToSleep = () => {
   document.getElementById('sleepLess').addEventListener('click', sleepFunction);
 };
 
-export default { sleepOnLoad, printToSleep };
+export default { setEnergy, printToSleep, getEnergy };
