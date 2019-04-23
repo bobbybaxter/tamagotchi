@@ -1,33 +1,38 @@
 import util from '../helpers/util';
 
-let strength = 100;
+let strength = 0;
 
-const fightOnLoad = () => strength;
+const getStrength = () => strength;
+
+const setStrength = (strengthValue) => {
+  strength = strengthValue;
+};
 
 const fightFunction = (e) => {
   e.preventDefault();
+  let strengthLevel = getStrength();
   if (e.target.id === 'fightGood') {
-    strength += 1;
-    if (strength > 100) {
-      strength = 100;
+    strengthLevel += 1;
+    if (strengthLevel > 100) {
+      strengthLevel = 100;
     }
-    document.getElementById('fightBarStatus').style.width = `${strength}%`;
-    // util.printToDom('strengthTotal', strength);
+    document.getElementById('fightBarStatus').style.width = `${strengthLevel}%`;
+    setStrength(strengthLevel);
   } else {
-    strength -= 10;
-    if (strength < 0) {
-      strength = 0;
+    strengthLevel -= 10;
+    if (strengthLevel < 0) {
+      strengthLevel = 0;
     }
-    document.getElementById('fightBarStatus').style.width = `${strength}%`;
-    // util.printToDom('strengthTotal', strength);
+    document.getElementById('fightBarStatus').style.width = `${strengthLevel}%`;
+    setStrength(strengthLevel);
   }
 };
 
 const printToFight = () => {
-  let domString = '<button class="fight-buttons" id="fightGood">Lift Weights</button>';
-  domString += '<button class="fight-buttons" id="fightBad">Fight a Stranger</button>';
+  let domString = '<button class="fight-buttons" id="fightBad">Fight a Stranger</button>';
+  domString += '<button class="fight-buttons" id="fightGood">Lift Weights</button>';
   // domString += `<h4 id="strengthTotal" class="progress">${strength}</h4>`;
-  domString += '<div id="progressBar">';
+  domString += '<div class="progressBar">';
   domString += '<div id="fightBarStatus"></div>';
   domString += '</div>';
   util.printToDom('fight', domString);
@@ -35,4 +40,4 @@ const printToFight = () => {
   document.getElementById('fightBad').addEventListener('click', fightFunction);
 };
 
-export default { fightOnLoad, printToFight };
+export default { setStrength, printToFight, getStrength };
