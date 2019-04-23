@@ -18,9 +18,9 @@ const playFunction = (e) => {
     }
     document.getElementById('playBarStatus').style.width = `${funLevel}%`;
   } else {
-    funLevel += Math.floor(Math.random() * 1);
+    funLevel += Math.floor(Math.random() * 9);
     if (funLevel > 100) {
-      funLevel = 0;
+      funLevel = 100;
     }
     document.getElementById('playBarStatus').style.width = `${funLevel}%`;
   }

@@ -18,7 +18,7 @@ const eatFunction = (e) => {
     }
     document.getElementById('eatBarStatus').style.width = `${fullness}%`;
   } else {
-    fullness -= Math.floor(Math.random() * 2;
+    fullness -= Math.floor(Math.random() * 2);
     if (fullness < 0) {
       fullness = 0;
     }
