@@ -18,7 +18,7 @@ const calculateOverallProgress = () => {
   const fun = playModule.getFun();
   const strength = fightModule.getStrength();
   const energy = sleepModule.getEnergy();
-  let total = (full + fun + strength + energy) / 4;
+  let total = Math.floor((full + fun + strength + energy) / 4);
   if (total > 100) {
     total = 100;
   } else if (total < 0) {
@@ -46,5 +46,9 @@ const updateProgressBar = () => {
 };
 
 export default {
-  getOverallProgress, setOverallProgress, printToProgress, updateProgressBar,
+  getOverallProgress,
+  setOverallProgress,
+  printToProgress,
+  updateProgressBar,
+  calculateOverallProgress,
 };
