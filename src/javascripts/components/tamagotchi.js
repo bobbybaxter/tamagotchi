@@ -3,11 +3,12 @@ import playModule from './playModule';
 import fightModule from './fightModule';
 import sleepModule from './sleepModule';
 import progressBar from './progressBar';
+import events from './events';
 
 import initValues from '../helpers/initialValues';
 // import util from '../helpers/util';
 
-const tamagotchiFunction = () => {
+const tamagotchiPageLoad = () => {
   const fullLevel = initValues.getInitValues().full;
   const funLevel = initValues.getInitValues().fun;
   const strengthLevel = initValues.getInitValues().strength;
@@ -24,8 +25,8 @@ const tamagotchiFunction = () => {
 };
 
 const makeTamagotchi = () => {
-  tamagotchiFunction();
-  progressBar.progressEventListener();
+  tamagotchiPageLoad();
+  events.eventListeners();
 };
 
 export default { makeTamagotchi };
