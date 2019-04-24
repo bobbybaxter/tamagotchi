@@ -2,6 +2,7 @@ import eatModule from './eatModule';
 import playModule from './playModule';
 import fightModule from './fightModule';
 import sleepModule from './sleepModule';
+import petPicture from './petPicture';
 
 import util from '../helpers/util';
 
@@ -68,6 +69,7 @@ const calculateValues = (e) => {
   playModule.setFun(funLevel);
   fightModule.setStrength(strengthLevel);
   sleepModule.setEnergy(energyLevel);
+  petPicture.printPetPicture();
 };
 
 export default { calculateValues };

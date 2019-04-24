@@ -3,6 +3,7 @@ import playModule from './playModule';
 import fightModule from './fightModule';
 import sleepModule from './sleepModule';
 import progressBar from './progressBar';
+import petPicture from './petPicture';
 import events from './events';
 
 import initValues from '../helpers/initialValues';
@@ -22,6 +23,7 @@ const tamagotchiPageLoad = () => {
   fightModule.printToFight();
   sleepModule.printToSleep();
   progressBar.printToProgress();
+  petPicture.printPetPicture();
 };
 
 const makeTamagotchi = () => {
