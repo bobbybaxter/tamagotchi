@@ -18,46 +18,44 @@ const setPetPicture = () => {
   if (overallProgress === 0) {
     currentMood = exList.expressions.dead;
   } else if (fullLevel === 0) {
-    currentMood = 'sad2';
+    currentMood = exList.expressions.sad2;
   } else if (funLevel === 0) {
-    currentMood = 'mad3';
+    currentMood = exList.expressions.mad3;
   } else if (strengthLevel === 0) {
-    currentMood = 'tired2';
+    currentMood = exList.expressions.tired2;
   } else if (energyLevel === 0) {
-    currentMood = 'sleepy';
+    currentMood = exList.expressions.sleepy;
   } else if (fullLevel < 25) {
-    currentMood = 'sad';
+    currentMood = exList.expressions.sad;
   } else if (funLevel < 25) {
-    currentMood = 'mad';
+    currentMood = exList.expressions.mad;
   } else if (strengthLevel < 25) {
-    currentMood = 'tired2';
+    currentMood = exList.expressions.tired2;
   } else if (energyLevel < 25) {
-    currentMood = 'mad4';
+    currentMood = exList.expressions.mad4;
   } else if (overallProgress === 100) {
-    currentMood = 'happy';
+    currentMood = exList.expressions.happy;
   } else if (fullLevel === 100) {
-    currentMood = 'happy2';
+    currentMood = exList.expressions.happy2;
   } else if (funLevel === 100) {
-    currentMood = 'happy3';
+    currentMood = exList.expressions.happy3;
   } else if (strengthLevel === 100) {
-    currentMood = 'mad2';
+    currentMood = exList.expressions.mad2;
   } else if (energyLevel === 100) {
-    currentMood = 'scared';
+    currentMood = exList.expressions.scared;
   } else if (overallProgress < 25) {
-    currentMood = 'confused2';
+    currentMood = exList.expressions.confused2;
   } else {
-    currentMood = 'happy4';
+    currentMood = exList.expressions.happy4;
   }
   return currentMood;
 };
 
 const printPetPicture = () => {
-  // const currentMood = setPetPicture();
-  // console.error(currentMood);
-  let domString = '<div class="pet-container>';
-  domString += '<img id="pet-picture" src="../assets/images/mantou_dead.png">';
+  const currentMood = setPetPicture();
+  const domString = `<img id="pet-picture" src="${currentMood}">`;
   // domString += `<p>${currentMood}</p>`;
-  domString += '</div>';
+  // domString += '</div>';
   util.printToDom('pet', domString);
 };
 
