@@ -8,25 +8,6 @@ const setFull = (fullValue) => {
   full = fullValue;
 };
 
-const eatFunction = (e) => {
-  e.preventDefault();
-  let fullness = getFull();
-  if (e.target.id === 'eatGood') {
-    fullness += Math.floor(Math.random() * 9);
-    if (fullness > 100) {
-      fullness = 100;
-    }
-    document.getElementById('eatBarStatus').style.width = `${fullness}%`;
-  } else {
-    fullness -= Math.floor(Math.random() * 2);
-    if (fullness < 0) {
-      fullness = 0;
-    }
-    document.getElementById('eatBarStatus').style.width = `${fullness}%`;
-  }
-  setFull(fullness);
-};
-
 const printToEat = () => {
   let domString = '<button class="eat-buttons" id="eatBad">Feed Junk Food</button>';
   domString += '<button class="eat-buttons" id="eatGood">Feed Healthy Food</button>';
@@ -35,8 +16,8 @@ const printToEat = () => {
   domString += '<div id="eatBarStatus"></div>';
   domString += '</div>';
   util.printToDom('eat', domString);
-  document.getElementById('eatGood').addEventListener('click', eatFunction);
-  document.getElementById('eatBad').addEventListener('click', eatFunction);
 };
 
-export default { setFull, printToEat, getFull };
+export default {
+  setFull, printToEat, getFull,
+};

@@ -45,10 +45,6 @@ const updateProgressBar = () => {
   document.getElementById('overallBarStatus').style.width = `${total}%`;
 };
 
-const progressEventListener = () => {
-  document.addEventListener('click', updateProgressBar);
-};
-
 export default {
-  getOverallProgress, setOverallProgress, printToProgress, progressEventListener,
+  getOverallProgress, setOverallProgress, printToProgress, updateProgressBar,
 };
