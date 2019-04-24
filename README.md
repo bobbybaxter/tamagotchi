@@ -4,7 +4,7 @@ A Tamagotchi app made to work on complex module interactivity.
 ## Screenshots
 ![image of tamagotchi website](https://raw.githubusercontent.com/bobbybaxter/tamagotchi/master/src/assets/images/screenshot1.png)
 ![image of tamagotchi website](https://raw.githubusercontent.com/bobbybaxter/tamagotchi/master/src/assets/images/screenshot2.png)
-![image of tamagotchi website](https://raw.githubusercontent.com/bobbybaxter/tamagotchi/master/src/assets/images/screenshot3.png)
+![image of tamagotchi website](https://raw.githubusercontent.com/bobbybaxter/tamagotchi/master/src/assets/images/screenshot3a.png)
 
 ## Installation Instructions
 - Clone down this repo
