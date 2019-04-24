@@ -8,11 +8,11 @@ import initValues from '../helpers/initialValues';
 // import util from '../helpers/util';
 
 const tamagotchiFunction = () => {
-  const fullness = initValues.getInitValues().full;
+  const fullLevel = initValues.getInitValues().full;
   const funLevel = initValues.getInitValues().fun;
   const strengthLevel = initValues.getInitValues().strength;
   const energyLevel = initValues.getInitValues().energy;
-  eatModule.setFull(fullness);
+  eatModule.setFull(fullLevel);
   playModule.setFun(funLevel);
   fightModule.setStrength(strengthLevel);
   sleepModule.setEnergy(energyLevel);

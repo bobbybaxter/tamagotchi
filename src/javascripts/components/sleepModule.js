@@ -18,9 +18,9 @@ const sleepFunction = (e) => {
     }
     document.getElementById('sleepBarStatus').style.width = `${energyLevel}%`;
   } else {
-    energy += Math.floor(Math.random() * 49);
-    if (energy > 100) {
-      energy = 100;
+    energyLevel += Math.floor(Math.random() * 49);
+    if (energyLevel > 100) {
+      energyLevel = 100;
     }
     document.getElementById('sleepBarStatus').style.width = `${energyLevel}%`;
   }
@@ -28,8 +28,8 @@ const sleepFunction = (e) => {
 };
 
 const printToSleep = () => {
-  let domString = '<button class="sleep-buttons" id="sleepMore">Deep Sleep</button>';
-  domString += '<button class="sleep-buttons" id="sleepLess">Nap</button>';
+  let domString = '<button class="sleep-buttons" id="sleepLess">Nap</button>';
+  domString += '<button class="sleep-buttons" id="sleepMore">Deep Sleep</button>';
   // domString += `<h4 id="energyTotal" class="progress">${energy}</h4>`;
   domString += '<div class="progressBar">';
   domString += '<div id="sleepBarStatus"></div>';

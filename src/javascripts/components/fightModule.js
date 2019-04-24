@@ -1,3 +1,7 @@
+import eatModule from './eatModule';
+import playModule from './playModule';
+import sleepModule from './sleepModule';
+
 import util from '../helpers/util';
 
 let strength = 0;
@@ -10,21 +14,27 @@ const setStrength = (strengthValue) => {
 
 const fightFunction = (e) => {
   e.preventDefault();
+  let fullLevel = eatModule.getFull();
+  let funLevel = playModule.getFun();
   let strengthLevel = getStrength();
+  let energyLevel = sleepModule.getEnergy();
   if (e.target.id === 'fightGood') {
-    strengthLevel += Math.floor(Math.random() * 9);
-    if (strengthLevel > 100) {
-      strengthLevel = 100;
-    }
-    document.getElementById('fightBarStatus').style.width = `${strengthLevel}%`;
+    fullLevel = util.changeAttr(fullLevel, 'minus', 10);
+    funLevel = util.changeAttr(funLevel, 'plus', 5);
+    strengthLevel = util.changeAttr(strengthLevel, 'plus', 25);
+    energyLevel = util.changeAttr(energyLevel, 'minus', 10);
+    util.setProgressBars(fullLevel, funLevel, strengthLevel, energyLevel);
   } else {
-    strengthLevel -= Math.floor(Math.random() * 11);
-    if (strengthLevel < 0) {
-      strengthLevel = 0;
-    }
-    document.getElementById('fightBarStatus').style.width = `${strengthLevel}%`;
+    fullLevel = util.changeAttr(fullLevel, 'minus', 10);
+    funLevel = util.changeAttr(funLevel, 'plus', 5);
+    strengthLevel = util.changeAttr(strengthLevel, 'minus', 10);
+    energyLevel = util.changeAttr(energyLevel, 'minus', 25);
+    util.setProgressBars(fullLevel, funLevel, strengthLevel, energyLevel);
   }
+  eatModule.setFull(fullLevel);
+  playModule.setFun(funLevel);
   setStrength(strengthLevel);
+  sleepModule.setEnergy(energyLevel);
 };
 
 const printToFight = () => {
